@@ -29,8 +29,10 @@ def generateUniqueId(file):
             sentenceID = "sentence_"+ sentenceIDBackup
         for token in sentence:
             tokenMisc = token["misc"]
-            if token["misc"] is not None:
-                token["misc"]["UniqueTokenId"] = sentenceID + "_" +(str(token["id"]) if type(token["id"]) is not tuple else (str(token["id"][0]) + "-" +str(token["id"][2])) )
+            if token["misc"] is None:
+                token["misc"] = {}
+           
+            token["misc"]["UniqueTokenId"] = sentenceID + "_" +(str(token["id"]) if type(token["id"]) is not tuple else (str(token["id"][0]) + "-" +str(token["id"][2])) )
 
     with open(file, 'w') as f:
         f.writelines([sentence.serialize() + "" for sentence in sentences])
