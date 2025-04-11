@@ -173,11 +173,11 @@ if __name__ == "__main__":
 
     print(program_arguments)
     
-    with open(program_arguments.treebank_name+'train.conllu', 'w') as f:
+    with open(program_arguments.treebank_name+'-train.conllu', 'w') as f:
         f.writelines([sentence.serialize() + "" for sentence in train])
-    with open(program_arguments.treebank_name+'dev.conllu', 'w') as f:
+    with open(program_arguments.treebank_name+'-dev.conllu', 'w') as f:
         f.writelines([sentence.serialize() + "" for sentence in dev])
-    with open(program_arguments.treebank_name+'test.conllu', 'w') as f:
+    with open(program_arguments.treebank_name+'-test.conllu', 'w') as f:
         f.writelines([sentence.serialize() + "" for sentence in test])
     
     
